@@ -29,8 +29,8 @@ namespace Calculo
 
             int n = num;
 
-            var x = new double[n];
-            var fx = new double[n];
+            double[] x = new double[n];
+            double[] fx = new double[n];
 
             Console.WriteLine("Introduce los datos");
             for (int i = 0; i < n; i++)
