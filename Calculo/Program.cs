@@ -38,9 +38,14 @@ namespace Calculo
             // asignandole el valor del limite superior a f2
             f2 = b;
 
-            x1 = Math.Pow((8.1 + 12.5 * Math.Pow(f0, 6) + 0.6 * f0 + 10 * Math.Pow(f0, 4)), 2);
-            x2 = Math.Pow((8.1 + 12.5 * Math.Pow(f1, 6) + 0.6 * f1 + 10 * Math.Pow(f1, 4)), 2);
-            x3 = Math.Pow((8.1 + 12.5 * Math.Pow(f2, 6) + 0.6 * f2 + 10 * Math.Pow(f2, 4)), 2);
+            //x1 = Math.Pow((8.1 + 12.5 * Math.Pow(f0, 6) + 0.6 * f0 + 10 * Math.Pow(f0, 4)), 2);
+            //x2 = Math.Pow((8.1 + 12.5 * Math.Pow(f1, 6) + 0.6 * f1 + 10 * Math.Pow(f1, 4)), 2);
+            //x3 = Math.Pow((8.1 + 12.5 * Math.Pow(f2, 6) + 0.6 * f2 + 10 * Math.Pow(f2, 4)), 2);
+
+            x1 = 0.2 + 25 * f0 - 200 * Math.Pow(f0, 2) + 675 * Math.Pow(f0, 3) - 900 * Math.Pow(f0, 4) + 400 * Math.Pow(f0, 5);
+            x2 = 0.2 + 25 * f1 - 200 * Math.Pow(f1, 2) + 675 * Math.Pow(f1, 3) - 900 * Math.Pow(f1, 4) + 400 * Math.Pow(f1, 5);
+            x3 = 0.2 + 25 * f2 - 200 * Math.Pow(f2, 2) + 675 * Math.Pow(f2, 3) - 900 * Math.Pow(f2, 4) + 400 * Math.Pow(f2, 5);
+
 
             resultado = (r * (x1 + 2 * x2 + x3)) / (2 * n);
 
