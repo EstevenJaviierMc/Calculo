@@ -8,48 +8,43 @@ namespace Calculo
 {
     class Program
     {
-        static double TrapM(int n, double[] x, double[] fx, double nTrapecios)
-        {
-            double suma = 0;
-
-            for (int i = 1; i < n; i++)
-            {
-                suma = suma + fx[i];
-            }
-
-            double I = (x[n] - x[0]) * (fx[0] + 2 * suma + fx[n]) / (2 * nTrapecios);
-            return I;
-        }
-
         static void Main(string[] args)
         {
-            Console.Write("ingrese numero de datos a analizar: ");
-            int num = int.Parse(Console.ReadLine());
-
-            Console.Write("ingrese Ancho de los trapecios: ");
-            double h = double.Parse(Console.ReadLine());
-
-            int n = num;
-
-            double[] x = new double[n];
-            double[] fx = new double[n];
-
-            Console.WriteLine("Introduce los datos");
-            for (int i = 0; i < n; i++)
+            double a, b, f0, f1, f2, h, n, r, resultado, x1, x2, x3;
+            do
             {
-                Console.Write("x[" + i + "]= ");
-                x[i] = double.Parse(Console.ReadLine());
+                Console.WriteLine("digite numero superior");
+                b = Double.Parse(Console.ReadLine());
+                Console.WriteLine("digite numero inferior");
+                a = Double.Parse(Console.ReadLine());
+                if (a > b)
+                {
+                    Console.Clear();
+                    Console.WriteLine("el numero superior debe se mayor al numero inferior");
+                }
+            } while (a >= b);
 
-                Console.Write("fx[" + i + "]= ");
-                fx[i] = double.Parse(Console.ReadLine());
-            }
-            //Ajueste respecto a la posicion que ocupa en el arreglo los valores
+            Console.WriteLine("digite numero intervalo");
+            n = Double.Parse(Console.ReadLine());
 
-            n = num - 1;
-            double nTrapecios = (x[n] - x[0]) / h;
+            // Para calcular altura
+            h = (b - a) / n;
+            // valor de la resta entre b y a
+            r = b - a;
+            // dandole valor a f0 multiplicando altura por cero
+            f0 = 0 * h;
+            // dandole valor a f1 dividiendo el limite superior entre 2
+            f1 = b / 2;
+            // asignandole el valor del limite superior a f2
+            f2 = b;
 
+            x1 = Math.Pow((8.1 + 12.5 * Math.Pow(f0, 6) + 0.6 * f0 + 10 * Math.Pow(f0, 4)), 2);
+            x2 = Math.Pow((8.1 + 12.5 * Math.Pow(f1, 6) + 0.6 * f1 + 10 * Math.Pow(f1, 4)), 2);
+            x3 = Math.Pow((8.1 + 12.5 * Math.Pow(f2, 6) + 0.6 * f2 + 10 * Math.Pow(f2, 4)), 2);
 
-            Console.WriteLine("El valor de la integral es: " + TrapM(n, x, fx, nTrapecios));
+            resultado = (r * (x1 + 2 * x2 + x3)) / (2 * n);
+
+            Console.WriteLine("resultado es= " + resultado);
 
             Console.ReadKey();
         }
