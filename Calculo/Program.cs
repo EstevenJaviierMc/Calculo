@@ -8,14 +8,16 @@ namespace Calculo
 {
     class Program
     {
-        static double trap(int n, double[] x, double[] fx, double t)
+        static double TrapM(int n, double[] x, double[] fx, double nTrapecios)
         {
             double suma = 0;
+
             for (int i = 1; i < n; i++)
             {
                 suma = suma + fx[i];
             }
-            double I = (x[n] - x[0]) * (fx[0] + 2 * suma + fx[n]) / (2 * t);
+
+            double I = (x[n] - x[0]) * (fx[0] + 2 * suma + fx[n]) / (2 * nTrapecios);
             return I;
         }
 
@@ -41,12 +43,13 @@ namespace Calculo
                 Console.Write("fx[" + i + "]= ");
                 fx[i] = double.Parse(Console.ReadLine());
             }
-            //Ajueste respecto
+            //Ajueste respecto a la posicion que ocupa en el arreglo los valores
 
             n = num - 1;
-            double t = (x[n] - x[0]) / h;
+            double nTrapecios = (x[n] - x[0]) / h;
 
-            Console.WriteLine("El valor de la integral es: " + trap(n, x, fx, t));
+
+            Console.WriteLine("El valor de la integral es: " + TrapM(n, x, fx, nTrapecios));
 
             Console.ReadKey();
         }
