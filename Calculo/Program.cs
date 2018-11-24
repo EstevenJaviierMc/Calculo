@@ -29,12 +29,16 @@ namespace Calculo
 
             // Para calcular altura
             h = (b - a) / n;
+
             // valor de la resta entre b y a
             r = b - a;
+
             // dandole valor a f0 multiplicando altura por cero
             f0 = 0 * h;
+
             // dandole valor a f1 dividiendo el limite superior entre 2
             f1 = b / 2;
+
             // asignandole el valor del limite superior a f2
             f2 = b;
 
