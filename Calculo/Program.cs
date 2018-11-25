@@ -8,8 +8,8 @@ namespace Calculo2
 {
     class Program
     {
-        //Se define metodo con el nombre TrapM y se le pasa los valores q tienen las variables "n", "nTrapecios" y los arreglos "x" y "f" 
-        static double TrapM(int n, double[] x, double[] fx, double nTrapecios)
+        //Se define metodo con el nombre TrapM y se le pasa el valor q tienen la variable "n" y los arreglos "x" y "fx", para calcular la integral
+        static double TrapM(int n, double[] x, double[] fx)
         {
             //Se define la variable suma con un valor de 0
             double suma = 0;
@@ -20,7 +20,8 @@ namespace Calculo2
                 suma = suma + fx[i];
             }
 
-            double I = (x[n] - x[0]) * (fx[0] + 2 * suma + fx[n]) / (2 * nTrapecios);
+            //Se calcula la integral mediante la formula
+            double I = (x[n] - x[0]) * (fx[0] + 2 * suma + fx[n]) / (2 * n);
 
             //el metodo retorna el valor de la variable "I"
             return I;
@@ -83,9 +84,7 @@ namespace Calculo2
                 fx[i] = 0.2 + 25 * x[i] - 200 * Math.Pow(x[i], 2) + 675 * Math.Pow(x[i], 3) - 900 * Math.Pow(x[i], 4) + 400 * Math.Pow(x[i], 5);
             }
 
-            double nTrapecios = (x[n] - x[0]) / h;
-
-            Console.WriteLine("El valor de la integral es: " + TrapM(n, x, fx, nTrapecios));//Se ejecuta el metodo TrapM
+            Console.WriteLine("El valor de la integral es: " + TrapM(n, x, fx));//Se ejecuta el metodo TrapM
 
             Console.ReadKey();
         }
