@@ -20,7 +20,7 @@ namespace Calculo2
                 suma = suma + fx[i];
             }
 
-            //Se calcula la integral mediante la formula
+            //Se calcula la integral mediante la formula y se guarda en la variable I
             double I = (x[n] - x[0]) * (fx[0] + 2 * suma + fx[n]) / (2 * n);
 
             //el metodo retorna el valor de la variable "I"
